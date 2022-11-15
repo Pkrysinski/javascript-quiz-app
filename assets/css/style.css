@@ -64,3 +64,10 @@ button:hover {
 button {
     margin: 5px;
 }
+
+.start-button {
+    padding: 10px 20px 10px 20px;
+    font-size: medium;
+    font-weight: bold;
+    border-radius: 8px;
+}

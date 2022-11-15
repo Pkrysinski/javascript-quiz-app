@@ -16,7 +16,8 @@ var allQuestions = {
   'String values must be enclosed within _________ when being assigned to variables:' : ['commas', 'brackets' , 'quotes', 'parenthesis', 2],
   'A very useful tool used during development and bebugging  for printing content to the debugger is: ' : ['JavaScript', 'terminal/bash', 'for loops', 'console.log', 3],
   'The "function" and "var" are known as: ' : ['Keywords', 'Data types', 'Declaration statements', 'Prototypes', 2],
-  'DOM stands for : ' : ['Director of Magic', 'Department of Maniacs', 'Dust on Machines', 'Document Object Model', 3]
+  'DOM stands for : ' : ['Director of Magic', 'Department of Maniacs', 'Dust on Machines', 'Document Object Model', 3],
+  'Is this a true or false question?' : ['True', 'False', 1]
 };
 
 function loadQuestion(currentQuestion) {
@@ -46,7 +47,7 @@ function loadAnswers(currentQuestion) {
           createButton.appendChild(text);
           createButton.addEventListener("click", checkAnswer(i, answers));
           createButton.setAttribute(
-            "style", "background-color: purple; color: white;"
+            "style", "background-color: purple; color: white; border-radius: 4px;"
           );
       
       
