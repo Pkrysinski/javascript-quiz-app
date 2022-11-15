@@ -24,7 +24,7 @@ THEN I am presented with another question
 
 WHEN I answer a question incorrectly
 THEN time is subtracted from the clock
->Got this part working correctly - basically when we invoke the checkAnswer function, if the answer is correct, we increnent the totalCorrectAnswers variable by 1.  If it's incorrectl, we assign the timerCount variable to subtract 3 seconds from itself.
+>Got this part working correctly - basically when we invoke the checkAnswer function, if the answer is correct, we increnent the totalCorrectAnswers variable by 1.  If it's incorrect, we assign the timerCount variable to subtract 3 seconds from itself.
 - - - - -
 
 WHEN all questions are answered or the timer reaches 0

@@ -35,6 +35,12 @@ body {
     margin-right: 150px;
 }
 
+.answers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .button {
     background: purple;
     border-radius: 8px;
@@ -49,4 +55,8 @@ body {
     transition-property: background-color;
     transition-timing-function: linear;
     margin-top: 5px;
+}
+
+button:hover {
+    cursor: pointer;
 }

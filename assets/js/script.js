@@ -13,7 +13,7 @@ var totalCorrectAnswers = 0;
 
 var allQuestions = {
   'Commonly used data types DO NOT include: ' : ['alerts', 'booleans', 'strings', 'numbers', 0],
-  'String values must be enclosed within _________ when being awssigned to variables:' : ['commas', 'brackets' , 'quotes', 'parenthesis', 2],
+  'String values must be enclosed within _________ when being assigned to variables:' : ['commas', 'brackets' , 'quotes', 'parenthesis', 2],
   'A very useful tool used during development and bebugging  for printing content to the debugger is: ' : ['JavaScript', 'terminal/bash', 'for loops', 'console.log', 3],
   'The "function" and "var" are known as: ' : ['Keywords', 'Data types', 'Declaration statements', 'Prototypes', 2],
   'DOM stands for : ' : ['Director of Magic', 'Department of Maniacs', 'Dust on Machines', 'Document Object Model', 3]
@@ -39,14 +39,14 @@ function loadAnswers(currentQuestion) {
     answersEL.innerHTML = '';
     
     for (var i = 0; i < answers.length -1; i += 1) {
-      var createDiv = document.createElement('div'),
+      var createButton = document.createElement('button'),
           text = document.createTextNode(answers[i]);
       
-      createDiv.appendChild(text);      
-      createDiv.addEventListener("click", checkAnswer(i, answers));
+          createButton.appendChild(text);      
+          createButton.addEventListener("click", checkAnswer(i, answers));
       
       
-      answersEL.appendChild(createDiv);
+      answersEL.appendChild(createButton);
     }
   };
 
