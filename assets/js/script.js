@@ -26,7 +26,8 @@ function loadQuestion(currentQuestion) {
     var question = Object.keys(allQuestions)[currentQuestion];
     
     questionsEL.innerHTML = '';
-    questionsEL.innerHTML = question;    
+    questionsEL.innerHTML = question;   
+
 };
 
 function loadAnswers(currentQuestion) {
@@ -42,8 +43,11 @@ function loadAnswers(currentQuestion) {
       var createButton = document.createElement('button'),
           text = document.createTextNode(answers[i]);
       
-          createButton.appendChild(text);      
+          createButton.appendChild(text);
           createButton.addEventListener("click", checkAnswer(i, answers));
+          createButton.setAttribute(
+            "style", "background-color: purple; color: white;"
+          );
       
       
       answersEL.appendChild(createButton);
@@ -77,7 +81,9 @@ function loadAnswers(currentQuestion) {
         questionsEL.innerHTML = 'All done!';
         answersEL.innerHTML = '';
 
-        startButton.disabled = false;
+        //Show the "Start Quiz" button when the quiz is over
+        document.getElementById("start-button").style.visibility="visible";
+
         console.log(totalCorrectAnswers);
       }
                               
@@ -108,11 +114,25 @@ function startQuiz() {
 
     // Prevents start button from being clicked when round is in progress
     currentQuestion = 0;
-    startButton.disabled = true;
+
+    // Hide the "Start Quiz" button when the quiz starts
+    document.getElementById("start-button").style.visibility="hidden";
+
     startTimer();
     loadQuestion(currentQuestion);
     loadAnswers(currentQuestion);
 };
 
 // Attach event listener to start button to call startGame function on click
-startButton.addEventListener("click", startQuiz);
+function init() {
+  startButton.addEventListener("click", startQuiz);
+
+  startButton.setAttribute(
+    "style", "background-color: white; color: purple; box-shadow: 10px 5px 5px purple;"
+  );
+};
+
+
+
+// Calls init() so that it fires when page opened
+init();
