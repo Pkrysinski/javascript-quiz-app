@@ -18,10 +18,13 @@ THEN a timer starts and I am presented with a question
 - - - - -
 WHEN I answer a question
 THEN I am presented with another question
+>Got the carousel aspect of the web page working.  Now just making it look pretty and behave correctly (need to hide the "Start Quiz" button once the quiz has been started)
+
 - - - - -
 
 WHEN I answer a question incorrectly
 THEN time is subtracted from the clock
+>Got this part working correctly - basically when we invoke the checkAnswer function, if the answer is correct, we increnent the totalCorrectAnswers variable by 1.  If it's incorrectl, we assign the timerCount variable to subtract 3 seconds from itself.
 - - - - -
 
 WHEN all questions are answered or the timer reaches 0

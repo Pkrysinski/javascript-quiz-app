@@ -7,6 +7,8 @@ header {
     color: purple;
     font-family: Arial;
     padding-bottom: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
 body {
@@ -23,9 +25,17 @@ body {
     font-size: 30px;
     font-weight: bold;
     text-align:center;
-  }
+    margin-left: 150px;
+    margin-right: 150px;
+}
 
-button {
+.small-font {
+    text-align:center;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.button {
     background: purple;
     border-radius: 8px;
     color: white;
