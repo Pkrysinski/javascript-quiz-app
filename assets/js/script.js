@@ -17,7 +17,7 @@ var allQuestions = {
   'A very useful tool used during development and bebugging  for printing content to the debugger is: ' : ['JavaScript', 'terminal/bash', 'for loops', 'console.log', 3],
   'The "function" and "var" are known as: ' : ['Keywords', 'Data types', 'Declaration statements', 'Prototypes', 2],
   'DOM stands for : ' : ['Director of Magic', 'Department of Maniacs', 'Dust on Machines', 'Document Object Model', 3],
-  'Is this a true or false question?' : ['True', 'False', 1]
+  'Is this a true or false question?' : ['True', 'False', 0]
 };
 
 function loadQuestion(currentQuestion) {
@@ -66,10 +66,8 @@ function loadAnswers(currentQuestion) {
           correctAnswer = arr[arr.length-1];
       
       if (givenAnswer === correctAnswer) {
-        //TODO: Increment "totalCorrectAnswers" by 1, store in local storage
         totalCorrectAnswers += 1; 
       } else {
-        //TODO: Remove time from clock
         timerCount = timerCount - 3;
       }
       
@@ -82,14 +80,54 @@ function loadAnswers(currentQuestion) {
         questionsEL.innerHTML = 'All done!';
         answersEL.innerHTML = '';
 
+        gameOver();
+
         //Show the "Start Quiz" button when the quiz is over
         document.getElementById("start-button").style.visibility="visible";
-
-        console.log(totalCorrectAnswers);
       }
                               
     };
-  }
+};
+
+function submitScore() {
+
+  document.getElementById("start-button").style.visibility="visible";
+
+}
+
+// The loseGame function is called when timer reaches 0
+function gameOver() {
+
+  var inputEL = document.createElement("input");
+  var inputElLabel = document.createElement("label");
+  var submitBtn = document.createElement("button");
+  inputElLabel.setAttribute("for",inputEL);
+  submitBtn.textContent = "Submit";
+  inputElLabel.textContent = "Enter your initials: ";
+
+  inputEL.type = "text";
+
+  //Stop and reset timer back to zero
+  timerCount = 0;
+  timerElement.textContent = timerCount;
+  clearInterval(timer);
+
+  // Tell user game is over, and prompt for initials
+  questionsEL.textContent = "GAME OVER!";
+  answersEL.textContent = "Your final score is: " + totalCorrectAnswers;
+  answersEL.appendChild(inputElLabel);
+  answersEL.appendChild(inputEL);
+  answersEL.appendChild(submitBtn);
+
+  //Store score in local storage
+  localStorage.setItem("score", totalCorrectAnswers);
+  localStorage.setItem("initials", inputEL);
+  //Reset for next game
+  totalCorrectAnswers = 0;
+  
+  submitScore();
+
+}
 
 
 // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
@@ -132,8 +170,6 @@ function init() {
     "style", "background-color: white; color: purple; box-shadow: 10px 5px 5px purple;"
   );
 };
-
-
 
 // Calls init() so that it fires when page opened
 init();
