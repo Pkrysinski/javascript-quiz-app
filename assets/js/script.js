@@ -10,6 +10,7 @@ var timer;
 var timerCount;
 var currentQuestion = 0;
 var totalCorrectAnswers = 0;
+var submitBtn;
 
 var allQuestions = {
   'Commonly used data types DO NOT include: ' : ['alerts', 'booleans', 'strings', 'numbers', 0],
@@ -82,8 +83,6 @@ function loadAnswers(currentQuestion) {
 
         gameOver();
 
-        //Show the "Start Quiz" button when the quiz is over
-        document.getElementById("start-button").style.visibility="visible";
       }
                               
     };
@@ -91,7 +90,7 @@ function loadAnswers(currentQuestion) {
 
 function submitScore() {
 
-  document.getElementById("start-button").style.visibility="visible";
+  location.reload();
 
 }
 
@@ -100,7 +99,7 @@ function gameOver() {
 
   var inputEL = document.createElement("input");
   var inputElLabel = document.createElement("label");
-  var submitBtn = document.createElement("button");
+  submitBtn = document.createElement("button");
   inputElLabel.setAttribute("for",inputEL);
   submitBtn.textContent = "Submit";
   inputElLabel.textContent = "Enter your initials: ";
@@ -124,9 +123,8 @@ function gameOver() {
   localStorage.setItem("initials", inputEL);
   //Reset for next game
   totalCorrectAnswers = 0;
-  
-  submitScore();
 
+  submitBtn.addEventListener("click", submitScore);
 }
 
 
