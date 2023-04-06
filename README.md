@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The purpose of this weeks challenge is to have us build a quiz based on JavaScript fundamentals we've covered in the bootcamp so far.  The Quiz will prompt a user to start via a button, which will trigger a timer to start in the top-right via an event listener.  The user will then be promped through a series of basic multiple-choice questions, and depending if the user is correct or not, will either reset the timer back to 10 seconds, or decriment it by some time (TODO: TBD on time to decriment).  The user will also be able to view their previous high scores in the upper-left hand corner.
+The purpose of this weeks challenge is to have us build a quiz based on JavaScript fundamentals we've covered in the bootcamp so far.  The Quiz will prompt a user to start via a button, which will trigger a timer to start in the top-right via an event listener.  The user will then be promped through a series of basic multiple-choice questions, and depending if the user is correct or not, will either reset the timer back to 10 seconds, or decriment it by some time.  The user will also be able to view their previous high scores in the upper-left hand corner.
 
 ## Link to Deployed Application
 https://pkrysinski.github.io/javascript-quiz-app/
